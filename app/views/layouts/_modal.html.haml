@@ -1,0 +1,28 @@
+#myModal.modal.fade{:role => "dialog", :tabindex => "-1"}
+  .modal-dialog{ :role => "document"}
+    .modal-content
+      .modal-header
+        %h1.cover-heading The Bee Game (Instructions)
+      .modal-body
+        %p.lead * Kill all the bees with the minium clicks by pressing the red button!
+
+        %p There are 3 different types of bees:
+        %ol
+          %li
+            %p The Queen Bee
+            %p Population: 1
+            %p Hit points: 100
+            %p Hit points deducted per hit: 8
+            %p (Killing this bee instantly kills all the remaining bees.)
+          %li
+            %p Worker Bees
+            %p Population: 5
+            %p Hit points: 75
+            %p Hit points deducted per hit: 10
+          %li
+            %p Drone Bees
+            %p Population: 8
+            %p Hit points: 50
+            %p Hit points deducted per hit: 12
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close

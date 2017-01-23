@@ -1,0 +1,25 @@
+.inner.cover
+  .row
+    .col-md-3
+      %button.btn.btn-primary.btn-md{ type: "button", data: { 'toggle' => 'modal', 'target' => '#myModal' } }
+        Game Instructions
+    .col-md-2
+      = link_to "Reset", root_path(reset: true), class: 'btn btn-warning btn-md'
+    .col-md-3
+      = link_to "Reset Scores", root_path(reset_score: true), class: 'btn btn-danger btn-md'
+    .col-md-4
+      %span= "Hits: #{session[:hits]} | Minimum Hits: #{session[:min_hits]}"
+  .clearfix
+  .row.bee-wrapper
+    - @bee_game.to_a.in_groups_of(3).each do |group|
+      .row
+        - group.compact.each do |key, bee|
+          .col-md-4
+            %h3= key
+            .progress
+              - percentage = get_percentage(key, @bee_game, bee[:type])
+              .progress-bar.progress-bar-success{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "40", :role => "progressbar", :style => "width: #{percentage}%"}
+                = "#{percentage}% HP"
+  .row.game-start-wrapper
+    .col-md-12
+      = link_to "Hit Now!", [:hit_bee], method: :post, class: 'btn btn-warning btn-lg game-start'

@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # Using the resources-only principle to have a well-structured readable routes
+
+  resources :game, controller: "game", only: [:index]
+  resource :hit_bee, controller: "hit_bee", only: [:create]
+
+  root to: "game#index"
 end

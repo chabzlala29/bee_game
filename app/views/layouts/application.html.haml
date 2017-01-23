@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BeeGame
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .site-wrapper
+      .site-wrapper-inner
+        .cover-container
+          = render "layouts/modal"
+          = yield
+          .mastfoot
+            .inner
+              %p
+                The Bee Game 2017
+                = succeed "." do
+                  %a{ href: "https://github.com/chabzlala29", target: "_blank" } @chabz
